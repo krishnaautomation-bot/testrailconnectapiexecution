@@ -21,9 +21,6 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import test_rail.APIClient;
 import test_rail.APIException;
 import test_rail.TestRailAccount;
@@ -47,6 +44,7 @@ public class CheckAuthAttributes_stepdefs {
 	
 	@When("^validate assertion$")
     public void validate_assertion() throws Throwable {
+		Thread.sleep(5000);
         Assert.assertEquals(true, true);
     }
 	
