@@ -13,14 +13,11 @@ import java.util.Scanner;
 import javax.xml.bind.DatatypeConverter;
 
 import org.json.JSONObject;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import authController.CheckAuthAttributes;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.When;
 import test_rail.APIClient;
 import test_rail.APIException;
 import test_rail.TestRailAccount;
@@ -32,8 +29,6 @@ public class Hooks {
     private static String projectId = "1";
     private static final int FAIL_STATE = 5;
     private static final int SUCCESS_STATE = 1;
-	
-	CheckAuthAttributes checkauthattributes =  new CheckAuthAttributes();
 	
 	@Before("@TR")
     public void initializeTestRail() throws MalformedURLException, IOException, APIException {
@@ -86,7 +81,7 @@ public class Hooks {
 
 		httpConn.setRequestProperty("Content-Type", "application/json");
 
-		byte[] message = ("krishnapnimmagadda@gmail.com:Automation@123").getBytes("UTF-8");
+		byte[] message = ("krishnapnimmagadda@gmail.com:fJSdLt0uocnhIKwC.hS2-rK3QUfbWtJ4B0OkHxfDt").getBytes("UTF-8");
 		String basicAuth = DatatypeConverter.printBase64Binary(message);
 		httpConn.setRequestProperty("Authorization", "Basic " + basicAuth);
 		

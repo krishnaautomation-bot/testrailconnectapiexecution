@@ -1,12 +1,19 @@
 package test_rail;
 
-public class TestRailAccount {
-	 
-	 public static APIClient testRailApiClient() {
+import java.io.IOException;
 
-		 	String baseUrl = "https://krishnabot.testrail.io/";
-	        String usernameTestRail = "krishnapnimmagadda@gmail.com";
-	        String passwordTestRail = "Automation@123";
+import utils.TestData;
+
+public class TestRailAccount {
+	
+	 
+	 public static APIClient testRailApiClient() throws IOException {
+		 
+		    TestData testdata = new TestData();
+
+		 	String baseUrl = testdata.properties.getProperty("testrail.uname");
+	        String usernameTestRail = testdata.properties.getProperty("testrail.uname");
+	        String passwordTestRail = testdata.properties.getProperty("testrail.uname");
 
 	        APIClient client = new APIClient(baseUrl);
 	        client.setUser(usernameTestRail);
