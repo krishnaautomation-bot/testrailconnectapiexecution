@@ -11,9 +11,9 @@ public class TestRailAccount {
 		 
 		    TestData testdata = new TestData();
 
-		 	String baseUrl = testdata.properties.getProperty("testrail.uname");
-	        String usernameTestRail = testdata.properties.getProperty("testrail.uname");
-	        String passwordTestRail = testdata.properties.getProperty("testrail.uname");
+		 	String baseUrl = testdata.properties.getProperty("testrailURL");
+	        String usernameTestRail = testdata.properties.getProperty("testrailUsername");
+	        String passwordTestRail = testdata.properties.getProperty("testrailPassword");
 
 	        APIClient client = new APIClient(baseUrl);
 	        client.setUser(usernameTestRail);

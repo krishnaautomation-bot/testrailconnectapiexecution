@@ -214,6 +214,7 @@
 				<test.environment>qa</test.environment>
 				<testrail.url>{{ secrets.TESTRAIL_URL }}</testrail.url>
 				<testrail.uname>{{ secrets.TESTRAIL_USERNAME }}</testrail.uname>
+				<testrail.pwd>{{ secrets.TESTRAIL_PASSWORD }}</testrail.pwd>
 				<testrail.apikey>{{ secrets.TESTRAIL_APIKEY }}</testrail.apikey>
 			</properties>
 		</profile>

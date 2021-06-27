@@ -21,6 +21,7 @@ import io.cucumber.java.Scenario;
 import test_rail.APIClient;
 import test_rail.APIException;
 import test_rail.TestRailAccount;
+import utils.TestData;
 
 public class Hooks {
 	
@@ -96,13 +97,15 @@ public class Hooks {
     
     public int GetTestRunID() throws IOException {
     	
-    	URL url = new URL("https://krishnabot.testrail.io/index.php?/api/v2/get_runs/1");
+    	TestData testdata = new TestData();
+    	
+    	URL url = new URL(testdata.properties.getProperty("testrailURL")+"index.php?/api/v2/get_runs/1");
 		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 		httpConn.setRequestMethod("GET");
 
 		httpConn.setRequestProperty("Content-Type", "application/json");
 
-		byte[] message = ("krishnapnimmagadda@gmail.com:Automation@123").getBytes("UTF-8");
+		byte[] message = (testdata.properties.getProperty("testrailUsername")+":"+testdata.properties.getProperty("testrailPassword")).getBytes("UTF-8");
 		String basicAuth = DatatypeConverter.printBase64Binary(message);
 		httpConn.setRequestProperty("Authorization", "Basic " + basicAuth);
 		
@@ -118,7 +121,6 @@ public class Hooks {
 		JSONObject json = new JSONObject(response.substring(1,response.length()-1));
 		System.out.println(json.getInt("id"));
 		return json.getInt("id");
-		//return response.substring(7, 9);
     }
     
 
