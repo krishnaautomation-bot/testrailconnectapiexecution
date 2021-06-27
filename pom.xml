@@ -212,10 +212,10 @@
 			</activation>
 			<properties>
 				<test.environment>qa</test.environment>
-				<testrail.url>${env.TESTRAIL_URL}</testrail.url>
-				<testrail.uname>${env.TESTRAIL_USERNAME}</testrail.uname>
-				<testrail.pwd>${env.TESTRAIL_PASSWORD}</testrail.pwd>
-				<testrail.apikey>${env.TESTRAIL_APIKEY}</testrail.apikey>
+				<testrail.url>${env.TESTRAILURL}</testrail.url>
+				<testrail.uname>${env.TESTRAILUSERNAME}</testrail.uname>
+				<testrail.pwd>${env.TESTRAILPASSWORD}</testrail.pwd>
+				<testrail.apikey>${env.TESTRAILAPIKEY}</testrail.apikey>
 			</properties>
 		</profile>
 		<profile>
