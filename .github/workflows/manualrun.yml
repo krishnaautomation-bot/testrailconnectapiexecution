@@ -24,7 +24,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       env:
-        TESRAILURL: ${{ secrets.TESTRAIL_URL }}
+        TESTRAILURL: ${{ secrets.TESTRAIL_URL }}
         TESTRAILUSERNAME: ${{ secrets.TESTRAIL_USERNAME }}
         TESRAILPASSWORD: ${{ secrets.TESTRAIL_PASSWORD }}
         TESTRAILAPIKEY: ${{ secrets.TESTRAIL_APIKEY }}
