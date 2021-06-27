@@ -10,13 +10,10 @@ public class TestRailAccount {
 	 public static APIClient testRailApiClient() throws IOException {
 		 
 		    TestData testdata = new TestData();
-		 	String baseUrl = testdata.properties.getProperty("testrailURL");
-	        String usernameTestRail = testdata.properties.getProperty("testrailUsername");
-	        String passwordTestRail = testdata.properties.getProperty("testrailPassword");
-                
-		    APIClient client = new APIClient(baseUrl);
-	        client.setUser(usernameTestRail);
-	        client.setPassword(passwordTestRail);
+		 
+		    APIClient client = new APIClient(testdata.properties.getProperty("testrailURL"));
+	        client.setUser(testdata.properties.getProperty("testrailUsername"));
+	        client.setPassword(testdata.properties.getProperty("testrailPassword"));
 
 	        return client;
 	    }
