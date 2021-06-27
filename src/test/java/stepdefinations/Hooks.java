@@ -34,7 +34,9 @@ public class Hooks {
 	@Before("@TR")
     public void initializeTestRail() throws MalformedURLException, IOException, APIException {
 		client = TestRailAccount.testRailApiClient();
+		//Add a new testrail RUN ID to project
 		client.sendPost("add_run/" + projectId, null);
+		//Fetch RUN ID
 		runId = GetTestRunID();
     }
 	
@@ -73,28 +75,6 @@ public class Hooks {
             	        }
     }
     
-    @Test
-    public void GetProjects() throws IOException {
-    	
-    	URL url = new URL("https://krishnabot.testrail.io/index.php?/api/v2/get_projects");
-		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
-		httpConn.setRequestMethod("GET");
-
-		httpConn.setRequestProperty("Content-Type", "application/json");
-
-		byte[] message = ("krishnapnimmagadda@gmail.com:fJSdLt0uocnhIKwC.hS2-rK3QUfbWtJ4B0OkHxfDt").getBytes("UTF-8");
-		String basicAuth = DatatypeConverter.printBase64Binary(message);
-		httpConn.setRequestProperty("Authorization", "Basic " + basicAuth);
-		
-		InputStream responseStream = httpConn.getResponseCode() / 100 == 2
-				? httpConn.getInputStream()
-				: httpConn.getErrorStream();
-		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
-		String response = s.hasNext() ? s.next() : "";
-		System.out.println(response);
-    }
-    
-    
     public int GetTestRunID() throws IOException {
     	
     	TestData testdata = new TestData();
@@ -114,12 +94,7 @@ public class Hooks {
 				: httpConn.getErrorStream();
 		Scanner s = new Scanner(responseStream).useDelimiter("\\A");
 		String response = s.hasNext() ? s.next() : "";
-		
-		System.out.println(response);
-		System.out.println(response.substring(7, 9));
-		System.out.println(response.substring(1, response.length()-1));
 		JSONObject json = new JSONObject(response.substring(1,response.length()-1));
-		System.out.println(json.getInt("id"));
 		return json.getInt("id");
     }
     

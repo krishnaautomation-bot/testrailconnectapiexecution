@@ -129,9 +129,6 @@ public class APIClient {
         // Create the connection object and set the required HTTP method
         // (GET/POST) and headers (content type and basic auth).
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-	System.out.println(this.m_user);
-        System.out.println(this.m_password);
-        System.out.println(this.m_url);
         String auth = getAuthorization(this.m_user, this.m_password);
         conn.addRequestProperty("Authorization", "Basic " + auth);
 
