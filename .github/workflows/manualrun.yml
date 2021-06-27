@@ -18,9 +18,4 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      env:
-        TESTRAILURL: ${{ secrets.TESTRAIL_URL }}
-        TESTRAILUSERNAME: ${{ secrets.TESTRAIL_USERNAME }}
-        TESRAILPASSWORD: ${{ secrets.TESTRAIL_PASSWORD }}
-        TESTRAILAPIKEY: ${{ secrets.TESTRAIL_APIKEY }}
       run: mvn verify -Pqa
