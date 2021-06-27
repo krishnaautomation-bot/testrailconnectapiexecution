@@ -23,4 +23,4 @@ jobs:
         TESTRAILUSERNAME: ${{ secrets.TESTRAIL_USERNAME }}
         TESRAILPASSWORD: ${{ secrets.TESTRAIL_PASSWORD }}
         TESTRAILAPIKEY: ${{ secrets.TESTRAIL_APIKEY }}
-      run: mvn -B package --file pom.xml
+      run: mvn verify -Pqa
