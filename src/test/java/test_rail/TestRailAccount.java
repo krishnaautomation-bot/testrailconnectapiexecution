@@ -14,67 +14,18 @@ public class TestRailAccount {
 		 	String baseUrl = testdata.properties.getProperty("testrailURL");
 	        String usernameTestRail = testdata.properties.getProperty("testrailUsername");
 	        String passwordTestRail = testdata.properties.getProperty("testrailPassword");
+                
+	        for(int i=0;i<1000;i++) {
+	        	System.out.println(baseUrl);
+                System.out.println(usernameTestRail);
+                System.out.println(passwordTestRail); 
                 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail); 
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-		 System.out.println(baseUrl);
-		System.out.println(usernameTestRail);
-		System.put.println(passwordTestRail);
-	        APIClient client = new APIClient(baseUrl);
+	        }
+		
+		
+		
+		
+		    APIClient client = new APIClient(baseUrl);
 	        client.setUser(usernameTestRail);
 	        client.setPassword(passwordTestRail);
 
