@@ -25,7 +25,7 @@ jobs:
         SLACK_CHANNEL: general
         SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#ff00ff'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Post Content :rocket:'
-        SLACK_TITLE: Post Title
+        SLACK_MESSAGE: ':rocket: https://krishnabot.testrail.io/index.php?/runs/view/87&group_by=cases:section_id&group_order=asc'
+        SLACK_TITLE: Automation scenarios test run
         SLACK_USERNAME: rtCamp
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}  
