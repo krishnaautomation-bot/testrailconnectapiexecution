@@ -28,12 +28,14 @@ jobs:
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
-       run: |
-        text=$(cat ./src/test/resources/asdf.txt)
+        run: |
+         text=$(cat ./src/test/resources/asdf.txt)
+         echo $text  
+         echo "::set-output name=text::$text" 
         SLACK_CHANNEL: general
         SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#ff00ff'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: echo ${{ text }}
+        SLACK_MESSAGE: echo "::set-output name=text::$text"
         SLACK_TITLE: Automation scenarios test run
         SLACK_USERNAME: Krishna-autobot
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}  
