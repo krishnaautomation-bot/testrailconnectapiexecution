@@ -19,20 +19,16 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn verify -Pqa
-    - name: 'Output Apex Tests Execution results'
-      id: "apex-tests"
-      run: |
-        text=$(cat ./src/test/resources/asdf.txt)
-        echo $text  
-        echo "::set-output name=text::$text"  
+    - name: 'Output testrail execution results'
+      env:
+        MSG: ${cat ./src/test/resources/asdf.txt}  
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
-        MSG: ${cat ./src/test/resources/asdf.txt}
-        SLACK_CHANNEL: general
-        SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#ff00ff'
-        SLACK_ICON: https://github.com/rtCamp.png?size=48 
-        SLACK_TITLE: Automation scenarios test run
-        SLACK_MESSAGE: ${{ env.MSG }}
-        SLACK_USERNAME: Krishna-autobot
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}  
+       SLACK_CHANNEL: general
+       SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#ff00ff'
+       SLACK_ICON: https://github.com/rtCamp.png?size=48 
+       SLACK_TITLE: Automation scenarios test run
+       SLACK_MESSAGE: ${{ env.MSG }}
+       SLACK_USERNAME: Krishna-autobot
+       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}  
