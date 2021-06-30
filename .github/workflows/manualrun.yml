@@ -16,7 +16,7 @@ jobs:
         run: mvn verify -Pqa
       - name: 'Output testrail execution results'
         run: |
-          echo "::set-env name=MSG::${cat ./src/test/resources/asdf.txt}"
+          echo "$(cat ./src/test/resources/asdf.txt) < MSG"
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -24,6 +24,6 @@ jobs:
           SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#FF00FF'
           SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_TITLE: Automation scenarios test run
-          SLACK_MESSAGE: ${{ env.MSG }}
+          SLACK_MESSAGE: $(cat MSG)
           SLACK_USERNAME: Krishna-autobot
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
