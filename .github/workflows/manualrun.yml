@@ -13,7 +13,7 @@ jobs:
       - name: Build with Maven
         run: mvn verify -Pqa
       - name: 'Output testrail execution results'
-        run: echo "SLACK_MESSAGE=$(cat ./src/test/resources/asdf.txt)" >> $GITHUB_ENV
+        run: echo "SLACK_MESSAGE=$(cat ./src/test/resources/asdf.txt)"
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
