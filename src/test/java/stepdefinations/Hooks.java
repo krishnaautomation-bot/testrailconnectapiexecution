@@ -1,5 +1,8 @@
 package stepdefinations;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -33,11 +36,18 @@ public class Hooks {
 	
 	@Before("@TR")
     public void initializeTestRail() throws MalformedURLException, IOException, APIException {
+		TestData testdata = new TestData();
 		client = TestRailAccount.testRailApiClient();
 		//Add a new testrail RUN ID to project
 		client.sendPost("add_run/" + projectId, null);
 		//Fetch RUN ID
 		runId = GetTestRunID();
+		File file = new  File("./target/testrailreportfile.txt");
+		FileWriter fw = new FileWriter( file.getAbsoluteFile( ) );
+	    BufferedWriter bw = new BufferedWriter(fw);
+	    bw.write(testdata.properties.getProperty("testrailURL")+"index.php?/runs/view/"+runId);
+	    bw.close( );
+		
     }
 	
     @After()
