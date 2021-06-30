@@ -1,3 +1,5 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 name: Java CI with Maven
 on: [workflow_dispatch]
 jobs:
@@ -12,16 +14,16 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn verify -Pqa
-        env:
-          MSG: ${cat ./src/test/resources/asdf.txt}
       - name: 'Output testrail execution results'
+        run: |
+          echo "::set-env name=MSG::${cat ./src/test/resources/asdf.txt}"
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
-          env:
-            SLACK_CHANNEL: general
-            SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#FF00FF'
-            SLACK_ICON: https://github.com/rtCamp.png?size=48
-            SLACK_TITLE: Automation scenarios test run
-            SLACK_MESSAGE: ${{ env.MSG }}
-            SLACK_USERNAME: Krishna-autobot
-            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        env:
+          SLACK_CHANNEL: general
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#FF00FF'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_TITLE: Automation scenarios test run
+          SLACK_MESSAGE: ${{ env.MSG }}
+          SLACK_USERNAME: Krishna-autobot
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
