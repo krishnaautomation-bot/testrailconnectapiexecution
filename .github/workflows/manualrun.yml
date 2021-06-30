@@ -19,13 +19,19 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn verify -Pqa
+    - name: 'Output Apex Tests Execution results'
+      id: "apex-tests"
+      run: |
+        text=$(cat ./target/testrailurl.txt)
+        echo $text  
+        echo "::set-output name=text::$text"  
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_CHANNEL: general
         SLACK_COLOR: ${{ job.status }} # or a specific color like 'green' or '#ff00ff'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: ':rocket: https://krishnabot.testrail.io/index.php?/runs/view/87&group_by=cases:section_id&group_order=asc'
+        SLACK_MESSAGE: text
         SLACK_TITLE: Automation scenarios test run
         SLACK_USERNAME: Krishna-autobot
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}  
